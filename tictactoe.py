@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 #----- GLobal Variables----
-
+import sys
 # Board display
 board = ["-", "-", "-",
          "-", "-", "-",
@@ -41,7 +41,6 @@ def play_game():
 
 
 def handle_turn(player):
-
     print(player + "s turn")
     position = input("Enter any number from 1-9: ")
     while position not in ["1", "2", "3", "4", "5", "6", "7", "8", "9"]:
@@ -158,7 +157,8 @@ def flip_player():
     return
 
 
-
-play_game()
-
-
+try:
+   play_game()
+except KeyboardInterrupt:
+   print("\nUFFF...You are leaving :(")
+   sys.exit(0)
